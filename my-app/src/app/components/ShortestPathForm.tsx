@@ -16,6 +16,7 @@ export default function ShortestPathForm() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+   
     fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/nodes`)
       .then(res => res.json())
       .then(data => setNodes(data))
