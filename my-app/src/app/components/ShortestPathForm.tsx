@@ -17,7 +17,7 @@ export default function ShortestPathForm() {
 
   useEffect(() => {
    
-    fetch(`http://localhost:5000/nodes`)
+    fetch(`https://suca-global-pathfinder.onrender.com/nodes`)
       .then(res => res.json())
       .then(data => setNodes(data))
       .catch(() => setError('🚨 Failed to load node data.'));
@@ -32,7 +32,7 @@ export default function ShortestPathForm() {
     try {
       console.log('Submitting with:', { source, destination });
 
-      const res = await fetch(`http://localhost:5000/shortestPath/shortest-path`, {
+      const res = await fetch(`https://suca-global-pathfinder.onrender.com/shortestPath/shortest-path`, {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
