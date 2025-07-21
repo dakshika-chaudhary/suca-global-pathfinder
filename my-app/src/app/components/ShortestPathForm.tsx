@@ -17,7 +17,7 @@ export default function ShortestPathForm() {
 
   useEffect(() => {
    
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/nodes`)
+    fetch(`http://localhost:5000/nodes`)
       .then(res => res.json())
       .then(data => setNodes(data))
       .catch(() => setError('🚨 Failed to load node data.'));
@@ -30,7 +30,9 @@ export default function ShortestPathForm() {
 
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/shortestPath/shortest-path`, {
+      console.log('Submitting with:', { source, destination });
+
+      const res = await fetch(`http://localhost:5000/shortestPath/shortest-path`, {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

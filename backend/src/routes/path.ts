@@ -8,6 +8,7 @@ import path from 'path';
 const router = express.Router();
 
 router.post('/shortest-path', async (req, res) => {
+  console.log('BODY:', req.body);
    const { source, destination } = req.body;
 
   const src = source.trim().toLowerCase();
