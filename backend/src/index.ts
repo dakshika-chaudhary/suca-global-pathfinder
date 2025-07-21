@@ -6,7 +6,14 @@ import { pool } from './db';
 import pathRouter from './routes/path';
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://suca-global-pathfinder-y7ac.vercel.app',
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
+
 app.use(express.json());
 
 app.use('/shortestPath', pathRouter);
